@@ -1,5 +1,5 @@
 ### Hi there 👋
-I'm Jana, a developer from Germany you can reach out to me via Github or Discord(same name as on github)!
+I'm Jana, a developer from Germany. You can reach out to me via Github or Discord(same name as on github)!
 
 ## My projects
 

@@ -5,7 +5,7 @@ I'm Jana, a developer from Germany. You can reach out to me via Github or Discor
 
 you can see them at my public Repo's
 
-## Things I use an learn
+## Things I use and learn
 
 [![Other](https://skillicons.dev/icons?i=js,ts,html,css,angular,bootstrap,discordjs,windows)](https://skillicons.dev)
 [![Other](https://skillicons.dev/icons?i=figma,github,mysql,nodejs,stackoverflow,vscode)](https://skillicons.dev)

@@ -30,21 +30,22 @@ header {
 nav {
   display: flex;
   justify-content: center;
-  gap: 0.5% ;
+  gap: 0.5%;
   background: $background-color;
   padding: 0.1%;
+  z-index: 1000;
+  position: relative;  // Falls etwas darüber liegt
 
   a {
     text-decoration: none;
     color: $text-color;
     font-weight: bold;
-    transition: color 0.3s;
-
-    &:hover {
-      color: $primary-color;
-    }
+    padding: 10px;
+    display: inline-block; // Falls Links zu klein sind
+    cursor: pointer; // Falls der Cursor nicht als "Hand" erscheint
   }
 }
+
 
 // Footer
 footer {
@@ -56,3 +57,6 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

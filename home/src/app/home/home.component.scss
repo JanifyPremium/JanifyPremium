@@ -1,16 +1,41 @@
+// Styling für das Bootstrap-Carousel
 .carousel {
+  max-width: 800px;  // Begrenzte Breite für bessere Darstellung
+  margin: 30px auto; // Zentrierung
+  border-radius: $border-radius;
+  overflow: hidden;  // Um abgerundete Ecken beizubehalten
+
+  .carousel-inner {
+    border-radius: $border-radius;
+  }
+
+  .carousel-item img {
     width: 100%;
-    max-width: 800px;
-    margin: auto;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
+    height: 450px;  // Einheitliche Bildhöhe
+    object-fit: cover; // Zuschneiden der Bilder, damit sie gut reinpassen
+    border-radius: $border-radius;
+  }
+
+  .carousel-control-prev, .carousel-control-next {
+    filter: invert(100%); // Helle Pfeile für dunkle Hintergründe
+    opacity: 0.7;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 1;
     }
   }
-  
+
+  .carousel-indicators [data-bs-target] {
+    background-color: $primary-color; // Pinke Indikatoren passend zur Theme-Farbe
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}

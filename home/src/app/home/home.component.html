@@ -1,1 +1,15 @@
-<p>home works!</p>
+<swiper
+  [slidesPerView]="1"
+  [spaceBetween]="10"
+  [loop]="true"
+  [autoplay]="{ delay: 3000, disableOnInteraction: false }"
+  [pagination]="{ clickable: true }"
+  [navigation]="true"
+  class="carousel"
+>
+  <ng-container *ngFor="let img of images">
+    <ng-template swiperSlide>
+      <img [src]="img" alt="Cosplay Bild">
+    </ng-template>
+  </ng-container>
+</swiper>

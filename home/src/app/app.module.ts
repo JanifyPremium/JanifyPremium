@@ -7,6 +7,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { BlogComponent } from './blog/blog.component';
+import { SwiperModule } from 'swiper/angular';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,7 +19,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [ ],
-  imports: [BrowserModule, RouterModule.forRoot(routes)], // Router hinzufügen
+  imports: [BrowserModule, SwiperModule, RouterModule.forRoot(routes)], // Router hinzufügen
   providers: [],
 })
 export class AppModule { }

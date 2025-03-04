@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+// Farben & Variablen
+$primary-color: #ff397b;
+$background-color: #8c8c8c;
+$text-color: #333;
+$border-radius: 10px;
+$font-size-h1: 48px;
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #333;
+    background: $background-color;
+    margin: 0;
+    padding: 0;
+  } 
+
+p {
+font-weight: 300; // Dünnere Schrift für Texte
+line-height: 1.6; // Für bessere Lesbarkeit
+}
+  
+// Header & Navigation
+header {
+  background: none;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5% ;
+  background: $background-color;
+  padding: 0.1%;
+
+  a {
+    text-decoration: none;
+    color: $text-color;
+    font-weight: bold;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+// Footer
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

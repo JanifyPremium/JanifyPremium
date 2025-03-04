@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
-  imports: [],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-
+  images = [
+    'assets/cosplay1.jpg',
+    'assets/cosplay2.jpg',
+    'assets/cosplay3.jpg'
+  ];
 }

@@ -1,0 +1,45 @@
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); // 4 Spalten pro Reihe
+    gap: 15px; // Abstand zwischen den Bildern
+    padding: 20px;
+    justify-content: center;
+  }
+  
+  .gallery-item {
+    overflow: hidden;
+    border-radius: 10px; // Abgerundete Ecken
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    
+    img {
+      width: 100%; 
+      height: auto;
+      display: block;
+      object-fit: cover; // Stellt sicher, dass Bilder gut aussehen
+      transition: transform 0.3s ease-in-out;
+  
+      &:hover {
+        transform: scale(1.05); // Zoom-Effekt beim Hover
+      }
+    }
+  }
+  
+  // Responsive Anpassung für kleinere Bildschirme
+  @media (max-width: 1024px) {
+    .gallery-container {
+      grid-template-columns: repeat(3, 1fr); // 3 Spalten bei Tablets
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .gallery-container {
+      grid-template-columns: repeat(2, 1fr); // 2 Spalten bei kleineren Bildschirmen
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .gallery-container {
+      grid-template-columns: repeat(1, 1fr); // 1 Spalte für Handys
+    }
+  }
+  

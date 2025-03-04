@@ -2,6 +2,13 @@
   <h1>JanifyPremium</h1>
 </header>
 
+
+<!-- Burger Menü Button (nur auf kleinen Screens sichtbar) -->
+<button class="burger-menu" (click)="toggleMenu()">
+  ☰
+</button>
+
+<!-- Navigation -->
 <nav>
   <a [routerLink]="['/']">Home</a>
   <a [routerLink]="['/gallery']">Gallery</a>

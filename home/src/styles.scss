@@ -1,55 +1,163 @@
-/* You can add global styles to this file, and also import other style files */
-// Farben & Variablen
-$primary-color: #ff397b;
-$background-color: #8c8c8c;
-$text-color: #333;
-$border-radius: 10px;
-$font-size-h1: 48px;
+// 🎨 Farben & Variablen
+$primary-color: #FF3D71;  // Akzentfarbe
+$background-color: #1E1E1E; // Dunkles Grau statt reines Schwarz
+$text-color: #E0E0E0; // Sanftes Weiß für gute Lesbarkeit
+$card-bg: #2A2A2A; // Dunkles Grau für Karten & Elemente
+$border-radius: 12px; // Leicht runde Kanten für weichen Look
 
+// 🌙 Dark Theme Basis
 body {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    color: #333;
-    background: $background-color;
+    color: $text-color;
+    background: $background-color !important;
     margin: 0;
     padding: 0;
-  } 
+} 
 
-p {
-font-weight: 300; // Dünnere Schrift für Texte
-line-height: 1.6; // Für bessere Lesbarkeit
-}
-  
-// Header & Navigation
+// 🏠 Header & Navigation (rechtsbündig)
 header {
+    color: $text-color;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end; // 🔥 Rechtsbündig
+    gap: 20px;
+    background: $card-bg;
+    padding: 10px 30px;
+    border-radius: $border-radius;
+    
+    a {
+        text-decoration: none;
+        color: $text-color;
+        font-weight: bold;
+        padding: 8px 16px;
+        border-radius: $border-radius;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background: $primary-color;
+            color: white;
+        }
+    }
+}
+
+// 📸 Galerie mit Grid (4 Spalten)
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.gallery-item {
+    background: $card-bg;
+    border-radius: $border-radius;
+    padding: 10px;
+    overflow: hidden;
+    text-align: center;
+
+    img {
+        width: 100%;
+        border-radius: $border-radius;
+        transition: transform 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+// 📜 Blog Design (Karten-Style)
+.blog-post {
+    background: $card-bg;
+    border-radius: $border-radius;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+
+    h2 {
+        color: $primary-color;
+    }
+}
+
+// 📢 Footer
+footer {
+    background: $card-bg;
+    color: $text-color;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+.burger-menu {
+  display: none; // Standardmäßig verstecken
   background: none;
-  color: rgb(255, 255, 255);
-  text-align: center;
+  border: none;
+  color: $text-color;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 nav {
   display: flex;
-  justify-content: center;
-  gap: 0.5%;
-  background: $background-color;
-  padding: 0.1%;
-  z-index: 1000;
-  position: relative;  // Falls etwas darüber liegt
+  justify-content: flex-end;
+  gap: 20px;
+  background: $card-bg;
+  padding: 10px 30px;
+  border-radius: $border-radius;
 
   a {
-    text-decoration: none;
-    color: $text-color;
-    font-weight: bold;
-    padding: 10px;
-    display: inline-block; // Falls Links zu klein sind
-    cursor: pointer; // Falls der Cursor nicht als "Hand" erscheint
+      text-decoration: none;
+      color: $text-color;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: $border-radius;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+          background: $primary-color;
+          color: white;
+      }
   }
 }
 
+// Mobile Ansicht – Burger-Menü aktivieren
+@media (max-width: 768px) {
+  .burger-menu {
+      display: block; // Button wird sichtbar
+  }
+
+  nav {
+      display: none; // Standardmäßig verstecken
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: $card-bg;
+      border-radius: $border-radius;
+      padding: 10px;
+  }
+
+  nav.active {
+      display: flex; // Wird eingeblendet, wenn Button geklickt wird
+  }
+}
 
 // Footer
 footer {
-  background: #222;
   color: white;
   text-align: center;
   padding: 10px;

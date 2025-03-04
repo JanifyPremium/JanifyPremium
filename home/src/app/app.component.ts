@@ -10,4 +10,13 @@ import { RouterModule } from '@angular/router';
 })
 export class AppComponent {
   title = 'JanifyPremium';
+
+  menuOpen = false;
+  toggleMenu(){
+    this.menuOpen = !this.menuOpen;
+    }
+
+    closeMenu() {
+      this.menuOpen = false;
+  }
 }

@@ -1,5 +1,5 @@
-<h2>Galerie</h2>
-<div class="gallery">
-  <img src="bild1.jpg" alt="Cosplay 1">
-  <img src="bild2.jpg" alt="Cosplay 2">
+<div class="gallery-container">
+  <div class="gallery-item" *ngFor="let image of images">
+    <img [src]="image" alt="Cosplay Bild">
+  </div>
 </div>

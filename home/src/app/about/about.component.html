@@ -1,7 +1,8 @@
+
 <div class="about-container">
-  <img src="./assets/pics/profile.jpg" alt="Your Name" class="profile-pic">
+  <img *ngIf="aboutData?.imageUrl" [src]="aboutData.imageUrl" alt="About Image" class="profile-pic">
   <div class="about-text">
     <h2>About Me</h2>
-    <p>Hi, I'm <strong>Janify</strong>! I'm a passionate cosplayer who loves bringing characters to life through costume design and craftsmanship. Here, I share my work, experiences, and creative journey with <strong>You</strong>.</p>
+    <p *ngIf="aboutData?.description">{{ aboutData.description }}</p>
   </div>
 </div>

@@ -1,37 +1,54 @@
-// 🎨 Farben & Variablen
-$primary-color: #FF3D71;  // Akzentfarbe
-$background-color: #1E1E1E; // Dunkles Grau statt reines Schwarz
-$text-color: #E0E0E0; // Sanftes Weiß für gute Lesbarkeit
-$card-bg: #2A2A2A; // Dunkles Grau für Karten & Elemente
-$border-radius: 12px; // Leicht runde Kanten für weichen Look
+// 🎨 Farben & Variablen (Falls nicht schon global definiert)
+$primary-color: #FF3D71;  
+$background-color: #1E1E1E;
+$text-color: #E0E0E0;
+$card-bg: #2A2A2A;
+$border-radius: 12px;
 
 .about-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     gap: 20px;
-    background: rgba(0, 0, 0, 0.4); // Transparenter dunkler Hintergrund
+    background: rgba(42, 42, 42, 0.8); // Leicht transparent für besseren Kontrast
     padding: 40px;
     border-radius: $border-radius;
-    max-width: 800px;    margin: 50px auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    margin: 50px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   
     @media (max-width: 768px) {
       flex-direction: column;
       text-align: center;
     }
-  }
-  
-  .profile-pic {
+}
+
+.profile-pic {
     width: 150px;
     height: 150px;
     object-fit: cover;
-    border: 4px solid #ff397b; // Primärfarbe für einen coolen Look
-  }
-  
-  .about-text {
-    color: #fff;
+    border-radius: 50%; // Runde Form für das Profilbild
+    border: 2px solid $primary-color; // Akzentfarbe für Rahmen
+}
+
+.about-text {
+    color: $text-color;
     font-size: 18px;
     line-height: 1.6;
-  }
-  
+    max-width: 500px;
+
+    h2 {
+      font-size: 24px;
+      color: $text-color;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-weight: 300;
+      text-align: justify;
+    }
+
+    strong {
+      color: lighten($primary-color, 10%);
+    }
+}

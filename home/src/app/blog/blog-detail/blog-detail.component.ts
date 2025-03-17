@@ -1,12 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BlogService } from '../../../services/blog.service';
+import { CommonModule, SlicePipe } from '@angular/common';
 
 @Component({
   selector: 'app-blog-detail',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, SlicePipe],
   templateUrl: './blog-detail.component.html',
-  styleUrl: './blog-detail.component.scss'
+  styleUrls: ['./blog-detail.component.scss']
 })
-export class BlogDetailComponent {
+export class BlogDetailComponent implements OnInit {
+  post: any;
 
+  constructor(private route: ActivatedRoute, private blogService: BlogService) {}
+
+  async ngOnInit() {
+    const slug = this.route.snapshot.paramMap.get('slug'); // URL-Slug holen
+    if (slug) {
+      this.post = await this.blogService.getPostBySlug(slug); // Blogpost abrufen
+    }
+  }
 }

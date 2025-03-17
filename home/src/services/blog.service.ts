@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
-import PocketBase from 'pocketbase';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogService {
-  private pb = new PocketBase('http://127.0.0.1:8090'); // Deine PocketBase URL
 
-  async getAllPosts() {
-    return await this.pb.collection('blog').getFullList();
+  private apiUrl = 'http://127.0.0.1:8090/api/collections/blog/records';  // URL zu PocketBase-Collection
+
+  constructor(private http: HttpClient) {}
+
+  // Holt alle Blog-Posts und gibt ein Observable zurück
+  getAllPosts(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 
-  async getPostBySlug(slug: string) {
-    return await this.pb.collection('blog').getFirstListItem(`slug="${slug}"`);
+  // Holt einen einzelnen Blog-Post anhand der ID
+  getPostById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 }

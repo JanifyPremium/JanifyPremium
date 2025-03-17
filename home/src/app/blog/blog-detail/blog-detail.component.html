@@ -1,7 +1,15 @@
-<div *ngIf="post" class="blog-detail">
+<div *ngIf="loading" class="loading">
+    <p>Lädt...</p>
+  </div>
+  
+  <div *ngIf="!loading && post" class="blog-detail">
     <h1>{{ post.title }}</h1>
     <img [src]="'http://127.0.0.1:8090/api/files/blog/' + post.id + '/' + post.image" alt="{{ post.title }}">
     <p [innerHTML]="post.content"></p>
     <a routerLink="/blog">← Zurück zum Blog</a>
+  </div>
+  
+  <div *ngIf="!loading && !post" class="error">
+    <p>Der Blog-Post konnte nicht gefunden werden.</p>
   </div>
   

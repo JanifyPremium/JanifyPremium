@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '../../services/blog.service';
-import { CommonModule, SlicePipe } from '@angular/common';
+import { Observable } from 'rxjs'; // Importiere Observable
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [CommonModule, SlicePipe, RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
-  blogPosts: any[] = [];
+  blogPosts$: Observable<any[]> = this.blogService.getAllPosts();  // Direkt initialisiert
 
   constructor(private blogService: BlogService) {}
 
-  async ngOnInit() {
-    this.blogPosts = await this.blogService.getAllPosts();
+  ngOnInit(): void {
   }
 }

@@ -1,14 +1,14 @@
 <div class="blog-container">
-    <h2 class="blog-title">Blog</h2>
-    <div class="blog-list">
-      <div *ngFor="let post of blogPosts" class="blog-card">
-        <img [src]="post.imageUrl" alt="{{ post.title }}">
-        <div class="blog-content">
-          <h3>{{ post.title }}</h3>
-          <p>{{ post.content | slice:0:100 }}...</p>
-          <a [routerLink]="'/blog/' + post.id" class="read-more">Mehr lesen</a>
-        </div>
+  <h2 class="blog-title">Blog</h2>
+  <div class="blog-list">
+    <!-- Mit async-Pipe auf das Observable zugreifen -->
+    <div *ngFor="let post of blogPosts$ | async" class="blog-card">
+      <img [src]="post.imageUrl" alt="{{ post.title }}">
+      <div class="blog-content">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content | slice:0:100 }}...</p>
+        <a [routerLink]="'/blog/' + post.id" class="read-more">Mehr lesen</a>
       </div>
     </div>
   </div>
-  
+</div>

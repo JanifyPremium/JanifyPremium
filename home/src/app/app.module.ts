@@ -1,17 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { RouterModule } from '@angular/router';
-
-import { AppComponent } from './app.component'; // Standalone Component als Import
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
+  declarations: [
+    
+  ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    RouterModule,
-    AppComponent // Hier wird AppComponent als Standalone Component importiert
+    AppComponent,
+    HomeComponent,
+    GalleryComponent,
+    AboutComponent,
+    ContactComponent,
+    BlogComponent
   ],
-  bootstrap: [AppComponent]
+  providers: [],
 })
 export class AppModule { }

@@ -15,10 +15,10 @@ import { BlogComponent } from './blog/blog.component';
     BrowserModule,
     AppComponent,
     HomeComponent,
-    GalleryComponent,
+    GalleryComponent,   
     AboutComponent,
-    ContactComponent,
-    BlogComponent
+    BlogComponent,
+    ContactComponent
   ],
   providers: [],
 })

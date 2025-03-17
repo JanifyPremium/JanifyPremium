@@ -1,8 +1,7 @@
 <div class="blog-container">
   <h2 class="blog-title">Blog</h2>
   <div class="blog-list">
-    <!-- Mit async-Pipe auf das Observable zugreifen -->
-    <div *ngFor="let post of blogPosts$ | async" class="blog-card">
+    <div *ngFor="let post of blogPosts" class="blog-card">  <!-- Keine async Pipe hier -->
       <img [src]="post.imageUrl" alt="{{ post.title }}">
       <div class="blog-content">
         <h3>{{ post.title }}</h3>

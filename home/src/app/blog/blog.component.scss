@@ -1,3 +1,10 @@
+// 🎨 Farben & Variablen
+$primary-color: #FF3D71;  // Akzentfarbe
+$background-color: #1E1E1E; // Dunkles Grau statt reines Schwarz
+$text-color: #E0E0E0; // Sanftes Weiß für gute Lesbarkeit
+$card-bg: #2A2A2A; // Dunkles Grau für Karten & Elemente
+$border-radius: 12px; // Leicht runde Kanten für weichen Look
+
 .blog-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

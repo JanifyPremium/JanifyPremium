@@ -1,1 +1,10 @@
-<p>blog works!</p>
+<div class="blog-container">
+    <h1>📖 Mein Blog</h1>
+    <div *ngFor="let post of blogPosts" class="blog-card">
+      <img [src]="'http://127.0.0.1:8090/api/files/blog/' + post.id + '/' + post.image" alt="{{ post.title }}">
+      <h2>{{ post.title }}</h2>
+      <p>{{ blogPost.content | slice:0:100 }}...</p>
+      <a [routerLink]="'/blog/' + post.slug">Weiterlesen →</a>
+    </div>
+  </div>
+  

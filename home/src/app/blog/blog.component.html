@@ -1,10 +1,14 @@
 <div class="blog-container">
-    <h1>📖 Mein Blog</h1>
-    <div *ngFor="let post of blogPosts" class="blog-card">
-      <img [src]="'http://127.0.0.1:8090/api/files/blog/' + post.id + '/' + post.image" alt="{{ post.title }}">
-      <h2>{{ post.title }}</h2>
-      <p>{{ blogPost.content | slice:0:100 }}...</p>
-      <a [routerLink]="'/blog/' + post.slug">Weiterlesen →</a>
+    <h2 class="blog-title">Blog</h2>
+    <div class="blog-list">
+      <div *ngFor="let post of blogPosts" class="blog-card">
+        <img [src]="post.imageUrl" alt="{{ post.title }}">
+        <div class="blog-content">
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.content | slice:0:100 }}...</p>
+          <a [routerLink]="'/blog/' + post.id" class="read-more">Mehr lesen</a>
+        </div>
+      </div>
     </div>
   </div>
   

@@ -1,5 +1,5 @@
-  <!--Filter Dropdown -->
-  <div class="filter-container">
+<!-- Filter Dropdown -->
+<div class="filter-container">
   <select [value]="selectedCategory" (change)="onCategoryChange($event)" class="filter-dropdown">
     <option value="all">All</option>
     <option value="Game">Game</option>
@@ -8,12 +8,28 @@
     <option value="Film">Film</option>
     <option value="Serie">Serie</option>
   </select>
-  </div>
+</div>
 
-<div class="gallery-container">  
-  <!--Gefilterte Galerie -->
+<!-- Galerie Container -->
+<div class="gallery-container">
+  <!-- Gefilterte Galerie -->
   <div *ngFor="let image of filteredImages()" class="gallery-item">
     <img [src]="image.imageUrl" [alt]="image.description">
     <p>{{ image.title }}</p>
+    <div *ngIf="image.fotografling_link !== ''">
+      <a [href]="image.fotografling_link" target="_blank" class="fotograflingUntertitel">{{ image.fotografling }}</a>
+    </div>
+    <div *ngIf="image.fotografling_link === ''" class="fotograflingUntertitel">
+      {{ image.fotografling }}
+    </div>
+  </div>
+</div>
+<!-- Modal für großes Bild -->
+<div *ngIf="selectedImage" class="modal-overlay" (click)="closeImageModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <img [src]="selectedImage.imageUrl" alt="Big image" class="modal-image">
+    <p>{{ selectedImage.title }}</p>
+    <p>{{ selectedImage.description }}</p>
+    <button (click)="closeImageModal()">Close</button>
   </div>
 </div>

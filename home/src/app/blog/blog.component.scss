@@ -1,88 +1,17 @@
-// 🎨 Farben & Variablen
-$primary-color: #FF3D71;  
-$background-color: #1E1E1E;
-$text-color: #E0E0E0;
-$card-bg: #2A2A2A;
-$border-radius: 12px;
-
 .blog-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: $background-color;
-  padding: 50px 20px;
-  color: $text-color;
-  border-radius: $border-radius;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  max-width: 1200px;
-  margin: 50px auto;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
 
-  @media (max-width: 768px) {
-    padding: 30px;
-  }
+.blog-item {
+  margin-bottom: 20px;
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-radius: 8px;
 }
 
 .blog-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: $text-color;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.blog-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  max-width: 100%;
-  width: 100%;
-}
-
-.blog-card {
-  background-color: $card-bg;
-  border-radius: $border-radius;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease-in-out;
-  overflow: hidden;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
-
-  img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-
-  .blog-content {
-    padding: 20px;
-
-    h3 {
-      font-size: 1.5rem;
-      color: $text-color;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1rem;
-      color: lighten($text-color, 20%);
-      margin: 10px 0;
-    }
-
-    .read-more {
-      display: inline-block;
-      padding: 8px 15px;
-      background-color: $primary-color;
-      color: #fff;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s;
-
-      &:hover {
-        background-color: darken($primary-color, 10%);
-      }
-    }
-  }
+  font-size: 2rem;
+  margin-bottom: 20px;
 }

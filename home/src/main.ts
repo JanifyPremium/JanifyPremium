@@ -1,6 +1,6 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
-import { Routes, provideRouter, withComponentInputBinding  } from '@angular/router';
+import { Routes, provideRouter, withComponentInputBinding } from '@angular/router';
 
 import { HomeComponent } from './app/home/home.component';
 import { GalleryComponent } from './app/gallery/gallery.component';
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'gallery', component: GalleryComponent },
   { path: 'about', component: AboutComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'blog/:id', component: BlogDetailComponent },
+  { path: 'blog/:id', component: BlogDetailComponent },  // Route für Blog-Details
   { path: 'contact', component: ContactComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' } 
 ];

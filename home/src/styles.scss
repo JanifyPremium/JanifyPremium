@@ -30,7 +30,7 @@ nav {
     padding: 10px 30px;
     border-radius: $border-radius;
     
-    a {
+    div {
         text-decoration: none;
         color: $text-color;
         font-weight: bold;
@@ -39,6 +39,10 @@ nav {
         transition: all 0.3s ease-in-out;
 
         &:hover {
+            background: $primary-color;
+            color: white;
+        }
+        &:active {
             background: $primary-color;
             color: white;
         }

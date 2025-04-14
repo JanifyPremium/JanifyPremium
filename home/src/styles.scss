@@ -24,7 +24,7 @@ header {
 
 nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 20px;
     background: $card-bg;
     padding: 10px 30px;
@@ -36,20 +36,24 @@ nav {
         font-weight: bold;
         padding: 8px 16px;
         border-radius: $border-radius;
-        transition: all 0.3s ease-in-out;
 
-        &:hover {
-            background: $primary-color;
-            color: white;
+        &:not(.nav-title):hover {
+            color: $primary-color;
         }
-        &:active {
-            background: $primary-color;
-            color: white;
+        &:not(.nav-title):active {
+            color: $primary-color;
         }
+    }
+    .nav-item{
+        justify-content: right;
+    }
+
+    .nav-title {
+        color: $text-color; 
+        display: flex-start;
     }
 }
 
-// 📜 Blog Design (Karten-Style)
 .blog-post {
     background: $card-bg;
     border-radius: $border-radius;

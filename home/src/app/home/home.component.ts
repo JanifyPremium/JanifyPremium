@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { GalleryService } from '../../services/gallery.service';
 import { CommonModule } from '@angular/common';
+import { ImageRecord } from '../../services/gallery.service';
+
+interface CarouselImage extends ImageRecord {
+  imageUrl: string;
+  active?: boolean;
+  showCaption?: boolean; // Add showCaption property
+}
 
 @Component({
   selector: 'app-home',
@@ -10,26 +17,67 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  carouselImages: any[] = [];
+  carouselImages: CarouselImage[] = [];
+  currentIndex = 0;
 
   constructor(private galleryService: GalleryService) {}
 
   async ngOnInit() {
+    await this.loadImages();
+  }
+
+  async loadImages() {
     try {
-      console.log("🔄 Lade Bilder aus der 'home' Collection...");
-      
-      // Bilder aus der PocketBase-Collection "home" abrufen
       const images = await this.galleryService.getImagesFromCollection('home');
+      
+      if (!images?.length) {
+        console.warn("No images found in collection");
+        return;
+      }
 
-      // Nur die ersten 3 Bilder für das Carousel nehmen
-      this.carouselImages = images.slice(0, 3).map(img => ({
-        ...img,
-        imageUrl: `http://127.0.0.1:8090/api/files/home/${img.id}/${img.image}`
-      }));
-
-      console.log("✅ Bilder erfolgreich geladen:", this.carouselImages);
+      this.carouselImages = images.slice(0, 3)
+        .filter(img => {
+          const hasValidImage = img.image && img.image.trim() !== '';
+          return hasValidImage;
+        })
+        .map((img, i) => {
+          const imageUrl = img.image.startsWith('http') 
+            ? img.image
+            : `http://127.0.0.1:8090/api/files/home/${img.id}/${img.image}`;
+          
+          return {
+            ...img,
+            imageUrl: imageUrl,
+            active: i === 0
+          };
+        });
     } catch (error) {
-      console.error("❌ Fehler beim Laden der Bilder:", error);
+      console.error("Error loading images:", error);
     }
+  }
+
+  nextImage() {
+    this.currentIndex = (this.currentIndex + 1) % this.carouselImages.length;
+    this.updateActiveImage();
+  }
+
+  prevImage() {
+    this.currentIndex = (this.currentIndex - 1 + this.carouselImages.length) % this.carouselImages.length;
+    this.updateActiveImage();
+  }
+
+  selectImage(index: number) {
+    this.currentIndex = index;
+    this.updateActiveImage();
+  }
+
+  private updateActiveImage() {
+    this.carouselImages.forEach((img, i) => {
+      img.active = i === this.currentIndex;
+    });
+  }
+
+  showCaption(event: Event, image: CarouselImage) {
+    image.showCaption = true;
   }
 }

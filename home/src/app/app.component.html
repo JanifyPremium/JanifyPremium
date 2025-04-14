@@ -1,15 +1,9 @@
-<header>
-  <h1>JanifyPremium</h1>
-</header>
-
-
-<!-- Burger Menü Button (nur auf kleinen Screens sichtbar) -->
-<button class="burger-menu" (click)="toggleMenu()">
-  ☰
-</button>
-
 <!-- Navigation -->
 <nav [class.active]="menuOpen">
+  <div routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-title" (click)="onNavClick()">JanifyPremium</div>
+  <button class="burger-menu" (click)="toggleMenu()">
+    ☰
+  </button>
   <div routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item" (click)="onNavClick()">Home</div>
   <div routerLink="/gallery" routerLinkActive="active" class="nav-item" (click)="onNavClick()">Gallery</div>
   <div routerLink="/about" routerLinkActive="active" class="nav-item" (click)="onNavClick()">About</div>

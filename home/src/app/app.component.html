@@ -9,12 +9,12 @@
 </button>
 
 <!-- Navigation -->
-<nav>
-  <div routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">Home</div>
-  <div routerLink="/gallery" routerLinkActive="active" class="nav-item">Gallery</div>
-  <div routerLink="/about" routerLinkActive="active" class="nav-item">About</div>
-  <div routerLink="/blog" routerLinkActive="active" class="nav-item">Blog</div>
-  <div routerLink="/contact" routerLinkActive="active" class="nav-item">Contact</div>
+<nav [class.active]="menuOpen">
+  <div routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item" (click)="onNavClick()">Home</div>
+  <div routerLink="/gallery" routerLinkActive="active" class="nav-item" (click)="onNavClick()">Gallery</div>
+  <div routerLink="/about" routerLinkActive="active" class="nav-item" (click)="onNavClick()">About</div>
+  <div routerLink="/blog" routerLinkActive="active" class="nav-item" (click)="onNavClick()">Blog</div>
+  <div routerLink="/contact" routerLinkActive="active" class="nav-item" (click)="onNavClick()">Contact</div>
 </nav>
 
 

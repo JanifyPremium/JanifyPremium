@@ -1,112 +1,82 @@
 // 🎨 Farben & Variablen
-$primary-color: #FF3D71;  // Akzentfarbe
-$background-color: #1E1E1E; // Dunkles Grau statt reines Schwarz
-$text-color: #E0E0E0; // Sanftes Weiß für gute Lesbarkeit
-$card-bg: #2A2A2A; // Dunkles Grau für Karten & Elemente
-$border-radius: 12px; // Leicht runde Kanten für weichen Look
+$primary-color: #FF3D71;
+$background-color: #1E1E1E;
+$text-color: #E0E0E0;
+$card-bg: #2A2A2A;
+$border-radius: 12px;
 
-/* Container für die Galerie */
+/* Gallery Container */
 .gallery-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  padding: 40px;
+  padding: 20px;
   max-width: 1200px;
-  margin: auto;
-  margin-top: 80px;  // Abstand oben, um Platz für Dropdown zu lassen
+  margin: 0 auto;
 }
 
-/* Styling für Galerie-Elemente */
+/* Filter Container */
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 20px;
+
+  select {
+    background: $card-bg;
+    color: $text-color;
+    padding: 10px 15px;
+    border-radius: $border-radius;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+
+    &:hover {
+      background: lighten($card-bg, 5%);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: lighten($primary-color, 10%);
+    }
+  }
+}
+
+/* Gallery Items */
 .gallery-item {
   background: $card-bg;
   border-radius: $border-radius;
-  padding: 10px;
+  padding: 15px;
   overflow: hidden;
-  text-align: left;
   color: $text-color;
-  max-width: 300px;
-  max-height: 400px;
-  position: relative;
 
   img {
     width: 100%;
-    height: auto; // Verhindert Verzerrung des Bildes
-    max-height: 200px; // Maximale Höhe des Bildes
-    object-fit: cover; // Das Bild füllt den Container aus, ohne das Seitenverhältnis zu verzerren
+    height: 200px;
+    object-fit: cover;
     border-radius: $border-radius;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease;
     cursor: pointer;
 
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
   }
 
-  /* Falls der Text im Panel zu viel wird, soll er scrollen */
-  .description {
-    max-height: 100px; // Maximaler Textbereich
-    overflow: auto; // Ermöglicht das Scrollen bei zu viel Text
-    font-size: 14px; // Etwas kleinere Schrift
-    line-height: 1.5;  // Zeilenhöhe für bessere Lesbarkeit
-  }
-
-  .fotograflingUntertitel {
-    font-size: 12px;
+  p {
+    margin: 10px 0 5px;
   }
 }
 
-/* Container für das Dropdown */
-.filter-container {
-  position: absolute;  // Positioniert das Dropdown relativ zum Container
-  top: 10em;           // Abstand zum oberen Rand (z. B. Platz für eine Navigationsleiste)
-  right: 20px;         // Rechtsbündig
-  background: $card-bg; // Dunkles Grau für den Hintergrund
-  padding: 10px 20px;   // Innenabstand für das Dropdown
-  border-radius: $border-radius; // Abrundung des Dropdowns
-  z-index: 10;          // Stellt sicher, dass das Dropdown im Vordergrund bleibt
-}
-
-/* Styling für das Dropdown-Menü */
-.filter-container select {
-  background-color: $card-bg;
-  color: $text-color;
-  border: 1px solid $primary-color;
-  padding: 8px;
-  border-radius: 8px;
-  font-size: 16px;
-  
-  cursor: pointer;
-}
-
-/* Stil des Dropdowns */
-select {
-  background: $card-bg;
-  color: $text-color;
-  border: 2px solid $primary-color;
-  padding: 8px 12px;
-  border-radius: $border-radius;
-  font-size: 16px;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: lighten($card-bg, 5%);
-  }
-
-  &:focus {
-    border-color: lighten($primary-color, 10%);
-  }
-}
-
-/* Modal Styling (Vergrößerte Ansicht des Bildes) */
+/* Modal Styling */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background: rgba(0,0,0,0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,28 +85,30 @@ select {
 
 .modal-content {
   background: $card-bg;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  color: $text-color;
-}
-
-.modal-image {
-  max-width: 80vw;
+  padding: 30px;
+  border-radius: $border-radius;
+  max-width: 80%;
   max-height: 80vh;
-  object-fit: contain;
-  margin-bottom: 20px;
-}
+  overflow: auto;
 
-button {
-  padding: 10px 20px;
-  background-color: $primary-color;
-  border: none;
-  border-radius: 12px;
-  color: white;
-  cursor: pointer;
+  img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+  }
 
-  &:hover {
-    background-color: lighten($primary-color, 10%);
+  button {
+    background: $primary-color;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: $border-radius;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: darken($primary-color, 10%);
+    }
   }
 }

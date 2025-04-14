@@ -24,7 +24,7 @@ header {
 
 nav {
     display: flex;
-    justify-content: flex-end; // 🔥 Rechtsbündig
+    justify-content: flex-end;
     gap: 20px;
     background: $card-bg;
     padding: 10px 30px;
@@ -67,16 +67,8 @@ nav {
     }
 }
 
-// 📢 Footer
-footer {
-    background: $card-bg;
-    color: $text-color;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
-}
 .burger-menu {
-  display: none; // Standardmäßig verstecken
+  display: none;
   background: none;
   border: none;
   color: $text-color;
@@ -87,37 +79,14 @@ footer {
   right: 20px;
 }
 
-nav {
-  display: flex;
-  justify-content: flex-end;
-  gap: 20px;
-  background: $card-bg;
-  padding: 10px 30px;
-  border-radius: $border-radius;
-
-  a {
-      text-decoration: none;
-      color: $text-color;
-      font-weight: bold;
-      padding: 8px 16px;
-      border-radius: $border-radius;
-      transition: all 0.3s ease-in-out;
-
-      &:hover {
-          background: $primary-color;
-          color: white;
-      }
-  }
-}
-
 // Mobile Ansicht – Burger-Menü aktivieren
 @media (max-width: 768px) {
   .burger-menu {
-      display: block; // Button wird sichtbar
+      display: block;
   }
 
   nav {
-      display: none; // Standardmäßig verstecken
+      display: none;
       flex-direction: column;
       position: absolute;
       top: 60px;
@@ -125,16 +94,18 @@ nav {
       background: $card-bg;
       border-radius: $border-radius;
       padding: 10px;
+      z-index: 1000;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
   }
 
   nav.active {
-      display: flex; // Wird eingeblendet, wenn Button geklickt wird
+      display: flex;
   }
 }
 
 // Footer
 footer {
-  color: white;
+  color: $text-color;
   text-align: center;
   padding: 10px;
   position: fixed;

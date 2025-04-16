@@ -5,7 +5,6 @@ import { Routes, provideRouter, withComponentInputBinding } from '@angular/route
 import { HomeComponent } from './app/home/home.component';
 import { GalleryComponent } from './app/gallery/gallery.component';
 import { AboutComponent } from './app/about/about.component';
-import { ContactComponent } from './app/contact/contact.component';
 import { BlogComponent } from './app/blog/blog.component';
 import { BlogDetailComponent } from './app/blog/blog-detail/blog-detail.component';
 
@@ -16,7 +15,6 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'blog/:id', component: BlogDetailComponent },  // Route für Blog-Details
-  { path: 'contact', component: ContactComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' } 
 ];
 

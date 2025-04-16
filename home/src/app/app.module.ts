@@ -4,8 +4,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
 import { BlogComponent } from './blog/blog.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BlogService } from '../services/blog.service';
+import { FormsModule } from '@angular/forms'; 
 
 @NgModule({
   declarations: [
@@ -18,8 +20,11 @@ import { BlogComponent } from './blog/blog.component';
     GalleryComponent,   
     AboutComponent,
     BlogComponent,
-    ContactComponent
+    HttpClientModule,
+    FormsModule 
   ],
-  providers: [],
+  providers: [
+    BlogService
+  ],
 })
 export class AppModule { }
